@@ -1,0 +1,28 @@
+<h2>Show User</h2>
+
+<ul>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Last login at:</strong>
+    <%= @user.last_login_at %>
+  </li>
+
+  <li>
+    <strong>Login count:</strong>
+    <%= @user.login_count %>
+  </li>
+
+  <li>
+    <strong>Password:</strong>
+    <%= @user.password_hash %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
+<span><%= link "Back", to: user_path(@conn, :index) %></span>

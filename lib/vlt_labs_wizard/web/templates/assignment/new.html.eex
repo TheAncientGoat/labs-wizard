@@ -1,0 +1,6 @@
+<h2>New Assignment</h2>
+
+<%= render "form.html", changeset: @changeset, employees: @employees, projects: @projects,
+                        action: assignment_path(@conn, :create) %>
+
+<span><%= link "Back", to: assignment_path(@conn, :index) %></span>

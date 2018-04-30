@@ -1,0 +1,23 @@
+<h2>Show Man day</h2>
+
+<ul>
+
+  <li>
+    <strong>Performed on:</strong>
+    <%= @man_day.performed_on %>
+  </li>
+
+  <li>
+    <strong>Days:</strong>
+    <%= @man_day.days %>
+  </li>
+
+  <li>
+    <strong>Notes:</strong>
+    <%= @man_day.notes %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: man_day_path(@conn, :edit, @man_day) %></span>
+<span><%= link "Back", to: man_day_path(@conn, :index) %></span>

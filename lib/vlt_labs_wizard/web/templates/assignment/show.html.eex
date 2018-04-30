@@ -1,0 +1,28 @@
+<h2>Show Assignment</h2>
+
+<ul>
+
+  <li>
+    <strong>Estimated start:</strong>
+    <%= @assignment.estimated_start %>
+  </li>
+
+  <li>
+    <strong>Estimated end:</strong>
+    <%= @assignment.estimated_end %>
+  </li>
+
+  <li>
+    <strong>Estimated days:</strong>
+    <%= @assignment.estimated_days %>
+  </li>
+
+  <li>
+    <strong>Project</strong>
+    <%= @assignment.project.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: assignment_path(@conn, :edit, @assignment) %></span>
+<span><%= link "Back", to: assignment_path(@conn, :index) %></span>

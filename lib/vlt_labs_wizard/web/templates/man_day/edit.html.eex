@@ -1,0 +1,6 @@
+<h2>Edit Man day</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: man_day_path(@conn, :update, @man_day) %>
+
+<span><%= link "Back", to: man_day_path(@conn, :index) %></span>

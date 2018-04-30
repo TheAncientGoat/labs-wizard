@@ -1,0 +1,44 @@
+<h2>Listing Projects</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Estimated man days</th>
+      <th>Staging url</th>
+      <th>Description</th>
+      <th>Production url</th>
+      <th>Manday cost</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Min manday</th>
+      <th>Max manday</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for project <- @projects do %>
+    <tr>
+      <td><%= project.name %></td>
+      <td><%= project.estimated_man_days %></td>
+      <td><%= project.staging_url %></td>
+      <td><%= project.description %></td>
+      <td><%= project.production_url %></td>
+      <td><%= project.manday_cost %></td>
+      <td><%= project.status %></td>
+      <td><%= project.priority %></td>
+      <td><%= project.min_manday %></td>
+      <td><%= project.max_manday %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: project_path(@conn, :show, project), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: project_path(@conn, :edit, project), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: project_path(@conn, :delete, project), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Project", to: project_path(@conn, :new) %></span>

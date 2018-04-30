@@ -1,0 +1,71 @@
+<h2>Show Project</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @project.name %>
+  </li>
+
+  <li>
+    <strong>Estimated man days:</strong>
+    <%= @project.estimated_man_days %>
+  </li>
+
+  <li>
+    <strong>Staging url:</strong>
+    <%= @project.staging_url %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @project.description %>
+  </li>
+
+  <li>
+    <strong>Production url:</strong>
+    <%= @project.production_url %>
+  </li>
+
+  <li>
+    <strong>Manday cost:</strong>
+    <%= @project.manday_cost %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @project.status %>
+  </li>
+
+  <li>
+    <strong>Priority:</strong>
+    <%= @project.priority %>
+  </li>
+
+  <li>
+    <strong>Min manday:</strong>
+    <%= @project.min_manday %>
+  </li>
+
+  <li>
+    <strong>Max manday:</strong>
+    <%= @project.max_manday %>
+  </li>
+
+  <li>
+    <strong>Current mandays:</strong>
+    <%= @current_mandays %>
+  </li>
+
+  <li>
+    <strong>Assigned Employees</strong>
+    <ul>
+    <%=  for employee <- @project.employees do %>
+      <li><%= employee.nickname %></li>
+    <% end %>
+    </ul>
+  </li>
+</ul>
+
+<span><%= link "Edit", to: project_path(@conn, :edit, @project) %></span>
+<span><%= link "Back", to: project_path(@conn, :index) %></span>

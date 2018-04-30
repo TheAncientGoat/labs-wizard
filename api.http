@@ -1,0 +1,195 @@
+:dev_host := "http://0.0.0.0:4000"
+:prod_host := "https://labs-wizard-phoenix.herokuapp.com"
+# track manday
+POST :dev_host/api/man_days
+Content-Type: application/json
+Accept: application/json
+{
+  "man_day":{
+    "project_id": 1,
+    "performed_on": "2012-01-01",
+    "notes": "some notes",
+    "employee_id": 1,
+    "days": "0.5"
+  }
+}
+
+# list mandays
+GET :dev_host/api/man_days
+Accept: application/json
+
+# add feature
+POST :dev_host/api/features
+Content-Type: application/json
+Accept: application/json
+{
+  "feature":{
+    "name": "test feature",
+    "project_id": 1,
+    "start_on": "2012-01-01",
+    "end_on": "2015-01-01",
+    "notes": "some notes",
+    "employee_id": 32,
+    "estimated_days": "0.5"
+  }
+}
+# assign employee
+POST http://0.0.0.0:4000/api/assignments
+Content-Type: application/json
+Accept: application/json
+{
+  "assignment": {
+    "employee_id":"1",
+    "estimated_start":"2012-01-01",
+    "estimated_end":"2012-01-02",
+    "estimated_days":"1",
+    "project_id":"1"
+  }
+}
+
+# register new user
+POST :dev_host/api/users
+Accept: application/json
+Content-Type: application/json
+{
+"user": {
+  "email": "andrew.tan@gmail.com",
+  "password": "asdasd"
+ }
+}
+
+# get server departments
+GET https://labs-wizard-phoenix.herokuapp.com/api/departments
+Accept: application/json
+
+# get an authorization token
+POST :prod_host/api/auth
+Content-Type: application/json
+Accept: application/json
+{
+  "session": {
+    "email":"ryan.swart@vltkl.com",
+    "password": "asdasd"
+  }
+}
+
+# send chat
+POST :dev_host/api/slack
+Content-Type: application/json
+Accept: application/json
+{
+"slack": {}
+}
+
+# test chat callback
+POST :dev_host/api/slack
+Content-Type: application/json
+Accept: application/json
+{
+"payload": { "actions":[], "callback": "set_project"}
+}
+
+# post man day purchase to local
+POST :dev_host
+Content-Type: applicaiton/json
+Accept: application/json
+{
+{
+"man_day_purchase": {
+
+}
+}
+
+# get server projects, authenticated
+GET :prod_host/api/projects
+Accept: application/json
+Authorization: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjQiLCJleHAiOjE1MDQyMzQ2MDIsImlhdCI6MTUwMTY0MjYwMiwiaXNzIjoiTGFic1dpemFyZCIsImp0aSI6IjI5ZGNlNmNjLWJkZGItNGZiNi1hMDRjLThjZjEyOWU3NTUxNyIsInBlbSI6e30sInN1YiI6IlVzZXI6NCIsInR5cCI6ImFjY2VzcyJ9.y9zWy6HwmbUzaL8OjFBL01rVdW4prpveGFWl78ZGeNrHt3Hvb2_sjUMNOmoYtgHWUUGIOENniEHVMyISTozYog
+
+# get local projects, authenticated 
+GET :dev_host/api/projects
+Accept: application/json
+Authorization: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjEiLCJleHAiOjE1MDM0Nzc1NjksImlhdCI6MTUwMDg4NTU2OSwiaXNzIjoiTGFic1dpemFyZCIsImp0aSI6ImY2NGU3ZWU3LWFkZDMtNGI3Yy1hMmQ5LWY4ZjhiMmZiZGI3NCIsInBlbSI6e30sInN1YiI6IlVzZXI6MSIsInR5cCI6ImFjY2VzcyJ9.VFQcbB4ajtVKdzGbL4mklk8DLSQwVQjGRMVacHLKn5wLMpFC3FZWiYGt0onSVQYVWn7y0hVXiwvinqiL1BWZeg
+
+# get local projects, authenticated 
+GET :dev_host/api/employees
+Accept: application/json
+# Authorization: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjEiLCJleHAiOjE1MDM0Nzc1NjksImlhdCI6MTUwMDg4NTU2OSwiaXNzIjoiTGFic1dpemFyZCIsImp0aSI6ImY2NGU3ZWU3LWFkZDMtNGI3Yy1hMmQ5LWY4ZjhiMmZiZGI3NCIsInBlbSI6e30sInN1YiI6IlVzZXI6MSIsInR5cCI6ImFjY2VzcyJ9.VFQcbB4ajtVKdzGbL4mklk8DLSQwVQjGRMVacHLKn5wLMpFC3FZWiYGt0onSVQYVWn7y0hVXiwvinqiL1BWZeg
+
+# logout on local server (should not be needed)
+DELETE :dev_host/api/auth/1
+Accept: application/json
+
+# get an authorization token
+POST http://0.0.0.0:4000/api/auth
+Content-Type: application/json
+Accept: application/json
+{
+  "session": {
+    "email":"ryanwrt@gmail.com",
+    "password": "asdasd"
+  }
+}
+
+# departments
+POST http://0.0.0.0:4000/api/departments
+Content-Type: application/json
+Accept: application/json
+{
+  "department": {
+    "name":"123"
+  }
+}
+
+# server departments
+POST https://labs-wizard-phoenix.herokuapp.com/api/departments
+Content-Type: application/json
+Accept: application/json
+{
+  "department": {
+    "name": "test"
+    }
+}
+
+# employees
+GET http://0.0.0.0:4000/api/employees
+Accept: application/json
+
+# get projects
+GET :dev_host/api/projects
+accept: application/json
+
+# get assignments
+GET :dev_host/api/assignments
+accept: application/json
+
+# update project
+PUT :dev_host/api/projects/2
+Content-Type: application/json
+accept: application/json
+{"project":{"name":"test","min_manday":12,"max_manday":32,"manday_cost":null,"estimated_man_days":null,"mandays_purchased":"12","description":"A test project","priority":null,"production_url":null,"staging_url":null,"status":"ongoing","start_on":"2017-07-20","end_on":"2017-07-31","employees":[1],"unit_test_formula":null,"system_test_formula":null,"purchases":[],"project_image":"http://lorempixel.com/100/100/abstract","pm_formula":null,"man_days_used":"0","man_days":[],"ios_formula":null,"id":8,"design_formula":null,"android_formula":null}}
+
+
+#projects
+POST http://0.0.0.0:4000/api/projects
+Content-Type: application/json
+Accept: application/json
+{
+  "project": {
+    "unit_test_formula": 0.3,
+    "system_test_formula": 0.3,
+    "status": 1,
+    "staging_url":"A site",
+    "production_url":"A site",
+    "priority":1,
+    "pm_formula":0.3,
+    "name":"Test Project",
+    "min_manday":10,
+    "max_manday":20,
+    "manday_cost":"1500",
+    "ios_formula":"0.5",
+    "estimated_man_days":"15",
+    "design_formula":"0.1",
+    "description":"A desc",
+    "android_formula":"2"
+    }
+}
