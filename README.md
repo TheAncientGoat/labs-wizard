@@ -22,6 +22,7 @@ This is a simple app we built to help track project progress and resource expend
 
 To start your Phoenix server:
   * Copy `.env.example` to `.env` and customize to your environment
+  * run `export $(cat .env | grep -v ^# | xargs)` to set your env for compilation
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Install Node.js dependencies with `cd assets && npm install`

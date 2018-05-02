@@ -21,7 +21,6 @@ defmodule VltLabsWizard.Application do
       worker(VltLabsWizard.Bot.SlackScheduler, [])
     ]
 
-    Application.get_all_env
     final_children = if Application.get_env(:slack, :enabled) do
       with_bot
     else

@@ -42,6 +42,7 @@ defmodule VltLabsWizard.Web.Router do
 
     scope "/" do
       pipe_through [:login_required]
+      get "/sign-out", SessionController, :delete
       resources "/employees", EmployeeController
       resources "/projects", ProjectController
       resources "/assignments", AssignmentController

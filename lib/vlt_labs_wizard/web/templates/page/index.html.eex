@@ -1,7 +1,7 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
+  <h2><%= gettext "Welcome to %{name}!", name: "Labs Wizard" %></h2>
   <%= if @current_user do %>
-    <p class="lead">What have we done, <%= @current_user.username %>?</p>
+    <p class="lead">What have we done today, <%= @current_user.username %>?</p>
     <% else %>
     <p> Please sign in to continue </p>
     <% end %>

@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Project management tool">
+    <meta name="author" content="Ryan Swart">
 
-    <title>Hello VltLabsWizard!</title>
+    <title>Labs Wizard</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -17,19 +17,17 @@
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
             <%= if @current_user do %>
-
-            <li><%=  link "Projects", to: project_path(@conn, :index) %></li>
-            <li><%=  link "Employees", to: employee_path(@conn, :index) %></li>
-            <li><%=  link "Assignments", to: assignment_path(@conn, :index) %></li>
-            <li><%=  link "Sign Out",
-              to: session_path(@conn, :delete, @current_user), method: :delete %></li>
+                <li><a href="admin">Admin</a></li>
+                <li><%=  link "Projects", to: project_path(@conn, :index) %></li>
+                <li><%=  link "Employees", to: employee_path(@conn, :index) %></li>
+                <li><%=  link "Assignments", to: assignment_path(@conn, :index) %></li>
+                <li><a href="sign-out">Sign Out</a></li>
             <% else %>
-              <li><%=  link "Sign In", to: session_path(@conn, :new) %></li>
-              <li><%=  link "Register", to: user_path(@conn, :new) %></li>
+                <li><%=  link "Sign In", to: session_path(@conn, :new) %></li>
+                <li><%=  link "Register", to: user_path(@conn, :new) %></li>
             <% end %>
           </ul>
         </nav>
-        <span class="logo"></span>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
